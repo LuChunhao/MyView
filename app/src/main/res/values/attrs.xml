@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="SlideTwoSideLayout">
+
+        <attr name="content_id" format="reference"/>
+        <attr name="left_menu_id" format="reference"/>
+        <attr name="right_menu_id" format="reference"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="SwipeMenuLayout">
+        <attr name="leftMenuId" format="reference" />
+        <attr name="rightMenuId" format="reference" />
+        <attr name="contentId" format="reference" />
+    </declare-styleable>
+
+</resources>
