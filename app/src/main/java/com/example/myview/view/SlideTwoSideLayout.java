@@ -106,7 +106,6 @@ public class SlideTwoSideLayout extends ViewGroup {
     @Override
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         // left==0top==482right==2140bottom==832
-        Log.d(TAG, "onLayout: left==" + l + "top==" + t + "right==" + r + "bottom==" + b);
         int childCount = getChildCount();
         // 给各个view赋值
         for (int i = 0; i < childCount; i++) {
@@ -174,16 +173,12 @@ public class SlideTwoSideLayout extends ViewGroup {
             case MotionEvent.ACTION_MOVE:
                 mXMove = event.getX();
                 scrolledX = (int) (mXLastMove - mXMove);
-                Log.d(TAG, "getScrollX()===" + getScrollX() + "\tscrolledX===" + scrolledX + "\twidth===" + width + "\tMeasuredWidth===" + rightMenuView.getMeasuredWidth());
                 if (Math.abs(getScrollX()) <= width) {
-                    Log.d(TAG,"????????");
                     scrollBy(scrolledX,0);
                 }
                 mXLastMove = mXMove;
                 break;
             case MotionEvent.ACTION_UP:
-                Log.d(TAG, "ACTION_UP---getScrollX()===" + getScrollX());
-                Log.d(TAG, "ACTION_UP---move===" + (width - getScrollX()));
                 if (getScrollX() > 0) { // 向左滑动,滑出 rightMenuView
                     if (rightMenuView != null) {
                         if (scrolledX > 0) {
@@ -213,7 +208,6 @@ public class SlideTwoSideLayout extends ViewGroup {
     public void computeScroll() {
         super.computeScroll();
         if (scroller.computeScrollOffset()) {  // 动画没有结束
-            Log.d(TAG, "computeScroll===" + scroller.getCurrX());
             scrollTo(scroller.getCurrX(), scroller.getCurrY());
             invalidate();
         }

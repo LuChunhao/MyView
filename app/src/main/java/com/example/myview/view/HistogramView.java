@@ -5,16 +5,14 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.example.myview.DensityUtils;
 import com.example.myview.bean.DataBean;
 
-import java.util.HashMap;
-
-import static android.content.ContentValues.TAG;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by luchunhao on 2018/4/24.
@@ -30,7 +28,7 @@ public class HistogramView extends View {
     private Paint mHistogramBgPaint;
     private Paint mHistogramPaint;
     private Paint mTextPaint;
-    private HashMap<Integer, DataBean> dataTotal;
+    private List<DataBean> dataTotal;
     private int lastX;
     private int lastY;
 
@@ -49,7 +47,7 @@ public class HistogramView extends View {
         mHistogramPaint = new Paint();
         mTextPaint = new Paint();
         mBgPaint = new Paint();
-        dataTotal = new HashMap<>();
+        dataTotal = new ArrayList<>();
     }
 
 
@@ -66,7 +64,7 @@ public class HistogramView extends View {
         invalidate();
     }
 
-    public void setDataTotal(HashMap dataTotal) {
+    public void setDataTotal(List<DataBean> dataTotal) {
         this.dataTotal = dataTotal;
         invalidate();
     }
@@ -99,9 +97,9 @@ public class HistogramView extends View {
         super.onDraw(canvas);
         mHistogramHeight = height - DensityUtils.dp2px(getContext(), 40);
         canvas.drawRect(0, startY, width, mHistogramHeight, mBgPaint);
-        for (int key : dataTotal.keySet()) {
-            String name = dataTotal.get(key).getName();
-            int greyValue = dataTotal.get(key).getValue();
+        for (DataBean bean : dataTotal) {
+            String name = bean.getName();
+            int greyValue = bean.getValue();
             canvas.drawText(greyValue + "%", startX + greyValueAlignLeft, startY - greyValueAlignBottom, mTextPaint);
             canvas.drawRect(startX, startY + histogramAlignTop, startX + histogramWidth, mHistogramHeight, mHistogramBgPaint);
             canvas.drawRect(startX, startY + (1f - greyValue / 100f) * (mHistogramHeight - startY - histogramAlignTop) + histogramAlignTop, startX + histogramWidth, mHistogramHeight, mHistogramPaint);
@@ -129,7 +127,6 @@ public class HistogramView extends View {
                 //计算移动的距离
                 int offX = (x - lastX) / 5;
                 int offY = y - lastY;
-                Log.d(TAG, "ACTION_MOVE: offX=" + offX + "\tx=" + x + "\tmoveWidth=" + moveWidth + "\tgetScrollX=" + getScrollX());
                 if (moveWidth > 0) {
                     if (offX < 0) { // 向左滑动
                         if (getScrollX() < moveWidth) {

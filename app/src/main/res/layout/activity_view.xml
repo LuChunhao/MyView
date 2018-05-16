@@ -2,33 +2,13 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--<ScrollView-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent">-->
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/darker_gray"
-            android:padding="10dp"
-            android:text="区间view" />
-
-        <com.example.myview.view.IntervalView
-            android:id="@+id/interval_view"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="30dp"
-            android:paddingRight="30dp" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
@@ -36,77 +16,100 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/darker_gray"
                 android:padding="10dp"
-                android:text="滑动viewGroup" />
+                android:text="区间view" />
 
-            <com.example.myview.view.SlideTwoSideLayout
-                android:id="@+id/slide_layout"
+            <com.example.myview.view.IntervalView
+                android:id="@+id/interval_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:paddingRight="30dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:padding="10dp"
+                    android:text="滑动viewGroup" />
+
+                <com.example.myview.view.SlideTwoSideLayout
+                    android:id="@+id/slide_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    app:content_id="@+id/view_content"
+                    app:left_menu_id="@+id/view_left"
+                    app:right_menu_id="@+id/view_right">
+
+                    <View
+                        android:id="@+id/view_left"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/holo_green_dark" />
+
+                    <View
+                        android:id="@+id/view_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/holo_blue_light" />
+
+                    <View
+                        android:id="@+id/view_right"
+                        android:layout_width="100dp"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/holo_red_dark" />
+
+                </com.example.myview.view.SlideTwoSideLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:padding="10dp"
+                android:text="柱形图" />
+
+            <com.example.myview.view.HistogramView
+                android:id="@+id/m_histogram_view"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:padding="10dp"
+                android:text="K线图" />
+
+            <com.example.myview.view.LineChartView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+
+            <com.example.myview.view.TestView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                app:content_id="@+id/view_content"
-                app:left_menu_id="@+id/view_left"
-                app:right_menu_id="@+id/view_right">
+                android:background="@color/colorAccent"
+                android:visibility="gone" />
 
-                <View
-                    android:id="@+id/view_left"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/holo_green_dark" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/darker_gray"
+                android:padding="10dp"
+                android:text="网易云音乐加载中view" />
 
-                <View
-                    android:id="@+id/view_content"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/holo_blue_light" />
+            <Button
+                android:id="@+id/bt_change"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50" />
 
-                <View
-                    android:id="@+id/view_right"
-                    android:layout_width="100dp"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/holo_red_dark" />
-
-            </com.example.myview.view.SlideTwoSideLayout>
         </LinearLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="柱形图" />
-
-        <com.example.myview.view.HistogramView
-            android:id="@+id/m_histogram_view"
-            android:layout_width="match_parent"
-            android:layout_height="200dp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="K线图" />
-
-        <com.example.myview.view.LineChartView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"/>
-
-        <com.example.myview.view.TestView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:visibility="gone"
-            android:background="@color/colorAccent"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:text="网易云音乐加载中view" />
-
-        <Button
-            android:id="@+id/bt_change"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="50" />
-
-    </LinearLayout>
-    <!--</ScrollView>-->
+    </ScrollView>
 </layout>
