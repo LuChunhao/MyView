@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.myview.activity.WebActivity;
 import com.example.myview.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         binding.btMyView.setOnClickListener(this);
         binding.btRecyclerView.setOnClickListener(this);
+        binding.btWebView.setOnClickListener(this);
 
         ObjectAnimator animator = ObjectAnimator.ofFloat(binding.ivLauncher, "rotationY", 0, 360);
         //animator.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -51,6 +53,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_recycler_view:
                 startActivity(new Intent(MainActivity.this,RecyclerviewActivity.class));
+                break;
+
+            case R.id.bt_web_view:
+                startActivity(new Intent(MainActivity.this,WebActivity.class));
                 break;
         }
     }

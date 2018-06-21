@@ -26,6 +26,12 @@
             android:id="@+id/bt_recycler_view"
             android:text="recycler_view"/>
 
+        <Button
+            android:id="@+id/bt_web_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="webview"/>
+
         <ImageView
             android:id="@+id/iv_launcher"
             android:layout_width="wrap_content"
