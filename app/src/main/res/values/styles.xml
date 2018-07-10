@@ -18,4 +18,10 @@
         <item name="android:maxHeight">2dp</item>
     </style>
 
+    <style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <item name="actionMenuTextColor">#ffffff</item> <!--  菜单字体颜色-->
+        <item name="android:textSize">18sp</item> <!-- 菜单字体大小-->
+    </style>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
 </resources>

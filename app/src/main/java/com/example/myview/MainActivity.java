@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.myview.activity.GlideImageActivity;
+import com.example.myview.activity.NestedHoverTabActivity;
 import com.example.myview.activity.WebActivity;
 import com.example.myview.databinding.ActivityMainBinding;
 
@@ -20,11 +22,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
         binding.btMyView.setOnClickListener(this);
         binding.btRecyclerView.setOnClickListener(this);
         binding.btWebView.setOnClickListener(this);
+        binding.btGlideImage.setOnClickListener(this);
+        binding.btTabLayout.setOnClickListener(this);
 
         ObjectAnimator animator = ObjectAnimator.ofFloat(binding.ivLauncher, "rotationY", 0, 360);
         //animator.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -49,14 +53,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.bt_my_view:
-                startActivity(new Intent(MainActivity.this,ViewActivity.class));
+                startActivity(new Intent(MainActivity.this, ViewActivity.class));
                 break;
             case R.id.bt_recycler_view:
-                startActivity(new Intent(MainActivity.this,RecyclerviewActivity.class));
+                startActivity(new Intent(MainActivity.this, RecyclerviewActivity.class));
                 break;
 
             case R.id.bt_web_view:
-                startActivity(new Intent(MainActivity.this,WebActivity.class));
+                startActivity(new Intent(MainActivity.this, WebActivity.class));
+                break;
+
+            case R.id.bt_glide_image:
+                startActivity(new Intent(MainActivity.this, GlideImageActivity.class));
+                break;
+
+            case R.id.bt_tab_layout:
+                startActivity(new Intent(MainActivity.this, NestedHoverTabActivity.class));
                 break;
         }
     }

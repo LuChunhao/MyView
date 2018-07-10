@@ -14,5 +14,11 @@
         <attr name="rightMenuId" format="reference" />
         <attr name="contentId" format="reference" />
     </declare-styleable>
+    
+    <declare-styleable name="LoadingView">
+        <attr name="interval_side" format="dimension" />
+        <attr name="point_radius" format="dimension" />
+        <attr name="point_count" format="integer" />
+    </declare-styleable>
 
 </resources>

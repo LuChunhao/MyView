@@ -19,6 +19,8 @@ import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ItemViewHolder> {
 
+    private static final String TAG = "MyAdapter";
+
     private Context context;
     private List<String> list;
     private OnItemClickListener listener;
@@ -34,6 +36,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ItemViewHolder> {
         ItemTextBinding binding = DataBindingUtil.inflate(LayoutInflater.from(context), R.layout.item_text,parent,false);
         ItemViewHolder viewHolder = new ItemViewHolder(binding.getRoot());
         viewHolder.binding = binding;
+        viewHolder.setIsRecyclable(false);
         return viewHolder;
     }
 

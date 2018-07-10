@@ -11,25 +11,32 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
-                android:padding="10dp"
-                android:text="区间view" />
+                android:orientation="vertical"
+                android:visibility="gone">
 
-            <com.example.myview.view.IntervalView
-                android:id="@+id/interval_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="30dp"
-                android:paddingRight="30dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:padding="10dp"
+                    android:text="区间view" />
+
+                <com.example.myview.view.IntervalView
+                    android:id="@+id/interval_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -67,50 +74,77 @@
                 </com.example.myview.view.SlideTwoSideLayout>
             </LinearLayout>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
-                android:padding="10dp"
-                android:text="柱形图" />
+                android:orientation="vertical"
+                android:visibility="gone">
 
-            <com.example.myview.view.HistogramView
-                android:id="@+id/m_histogram_view"
-                android:layout_width="match_parent"
-                android:layout_height="200dp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:padding="10dp"
+                    android:text="柱形图" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
-                android:padding="10dp"
-                android:text="K线图" />
+                <com.example.myview.view.HistogramView
+                    android:id="@+id/m_histogram_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+            </LinearLayout>
 
-            <com.example.myview.view.LineChartView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
-
-            <com.example.myview.view.TestView
-                android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:background="@color/colorAccent"
-                android:visibility="gone" />
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/darker_gray"
-                android:padding="10dp"
-                android:text="loading view" />
+                android:orientation="vertical"
+                android:visibility="gone">
 
-            <ProgressBar
-                android:id="@+id/loading"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:indeterminateBehavior="repeat"
-                android:indeterminateDrawable="@drawable/progress_bar"
-                android:visibility="visible" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:padding="10dp"
+                    android:text="K线图" />
+
+                <com.example.myview.view.LineChartView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:padding="10dp"
+                    android:text="loading view" />
+
+                <com.example.myview.view.LoadingView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:visibility="visible"
+                    app:interval_side="5dp"
+                    app:point_radius="4.5dp"
+                    app:point_count="5"/>
+
+                <com.example.myview.view.LoadingViewLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"/>
+
+                <ProgressBar
+                    android:id="@+id/loading"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:indeterminateBehavior="repeat"
+                    android:indeterminateDrawable="@drawable/progress_bar"
+                    android:visibility="visible" />
+            </LinearLayout>
 
             <Button
                 android:id="@+id/bt_change"

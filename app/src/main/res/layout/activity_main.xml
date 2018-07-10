@@ -32,6 +32,18 @@
             android:layout_height="wrap_content"
             android:text="webview"/>
 
+        <Button
+            android:id="@+id/bt_glide_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GlideImage"/>
+
+        <Button
+            android:id="@+id/bt_tab_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="tablayout"/>
+
         <ImageView
             android:id="@+id/iv_launcher"
             android:layout_width="wrap_content"
