@@ -46,7 +46,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ItemViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.setOnItemClick(holder.binding.itemText);
+                if (null != listener) {
+                    listener.setOnItemClick(holder.binding.itemText);
+                }
             }
         });
     }

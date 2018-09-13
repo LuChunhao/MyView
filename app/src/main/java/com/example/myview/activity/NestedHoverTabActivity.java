@@ -33,12 +33,6 @@ public class NestedHoverTabActivity extends AppCompatActivity implements TabLayo
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-//            //透明状态栏
-//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//            //透明导航栏
-//            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-//        }
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);//取消标题
         binding = DataBindingUtil.setContentView(this, R.layout.activity_tab_recycler);

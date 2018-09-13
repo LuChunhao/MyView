@@ -24,6 +24,7 @@
         <activity android:name=".activity.WebActivity" />
         <activity android:name=".activity.GlideImageActivity" />
         <activity android:name=".activity.NestedHoverTabActivity" />
+        <activity android:name=".activity.FoldRecyclerViewActivity" />
     </application>
 
 </manifest>

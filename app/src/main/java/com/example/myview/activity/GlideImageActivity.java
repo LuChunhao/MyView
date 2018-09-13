@@ -37,9 +37,6 @@ public class GlideImageActivity extends AppCompatActivity {
         DrawableRequestBuilder thumbnailBuilder = Glide
                 .with(imageView.getContext())
                 .load(imageUrl_0);
-                //.skipMemoryCache(true)
-                //.diskCacheStrategy(DiskCacheStrategy.NONE);
-
         Glide.with(this)
                 .load(imageUrl)
                 .listener(new RequestListener<String, GlideDrawable>() {

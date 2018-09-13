@@ -8,10 +8,14 @@ public class DataBean {
     private String name;
     private int value;
     private int date;
+    private String time;
 
     public DataBean(String name, int value) {
         this.name = name;
         this.value = value;
+    }
+
+    public DataBean() {
     }
 
     public int getDate() {
@@ -36,5 +40,13 @@ public class DataBean {
 
     public void setValue(int value) {
         this.value = value;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
 }

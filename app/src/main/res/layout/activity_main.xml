@@ -44,6 +44,12 @@
             android:layout_height="wrap_content"
             android:text="tablayout"/>
 
+        <Button
+            android:id="@+id/bt_fold_recycler_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="折叠recyclerview"/>
+
         <ImageView
             android:id="@+id/iv_launcher"
             android:layout_width="wrap_content"

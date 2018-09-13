@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.myview.activity.FoldRecyclerViewActivity;
 import com.example.myview.activity.GlideImageActivity;
 import com.example.myview.activity.NestedHoverTabActivity;
 import com.example.myview.activity.WebActivity;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding.btWebView.setOnClickListener(this);
         binding.btGlideImage.setOnClickListener(this);
         binding.btTabLayout.setOnClickListener(this);
+        binding.btFoldRecyclerView.setOnClickListener(this);
 
         ObjectAnimator animator = ObjectAnimator.ofFloat(binding.ivLauncher, "rotationY", 0, 360);
         //animator.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -69,6 +71,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             case R.id.bt_tab_layout:
                 startActivity(new Intent(MainActivity.this, NestedHoverTabActivity.class));
+                break;
+            case R.id.bt_fold_recycler_view:
+                startActivity(new Intent(MainActivity.this, FoldRecyclerViewActivity.class));
                 break;
         }
     }

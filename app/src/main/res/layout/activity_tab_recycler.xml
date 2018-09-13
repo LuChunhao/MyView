@@ -34,18 +34,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="200dp" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="5dp"
-                        android:background="@color/colorAccent"/>
-
-                    <ImageView
-                        android:background="@mipmap/image"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp" />
-
                 </LinearLayout>
-
 
             <!--</android.support.design.widget.CollapsingToolbarLayout>-->
 
