@@ -4,11 +4,16 @@ import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.view.LayoutInflater;
+import android.view.View;
 
 import com.example.myview.R;
 import com.example.myview.adapter.FoldRecyclerAdapter;
+import com.example.myview.adapter.MyAdapter;
 import com.example.myview.adapter.MyExpandableAdapter;
 import com.example.myview.databinding.ActivityFoldRecyclerViewBinding;
+import com.example.myview.databinding.ItemFoldListBinding;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +27,7 @@ public class FoldRecyclerViewActivity extends AppCompatActivity {
     private ActivityFoldRecyclerViewBinding binding;
     private MyExpandableAdapter mAdapter;
     private FoldRecyclerAdapter adapter;
+    private LinearLayoutManager manager;
     private List<String> groupArray = new ArrayList<>();
     private List<List<String>> childArray = new ArrayList<>();
 
@@ -73,12 +79,38 @@ public class FoldRecyclerViewActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        mAdapter = new MyExpandableAdapter(this, groupArray, childArray);
+        //mAdapter = new MyExpandableAdapter(this, groupArray, childArray);
         adapter = new FoldRecyclerAdapter(this, groupArray, childArray);
-        binding.listView.setAdapter(mAdapter);
+        //binding.listView.setAdapter(mAdapter);
 
-        //binding.mainRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        manager = new LinearLayoutManager(this);
+        binding.mainRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         //binding.mainRecyclerView.setAdapter(adapter);
 
+        nestedScrollView();
+
+    }
+
+    /**
+     * 用NestedScrollView实现
+     */
+    private void nestedScrollView() {
+        for (int i = 0; i < groupArray.size(); i++) {
+            final ItemFoldListBinding itemBinding = DataBindingUtil.inflate(LayoutInflater.from(this), R.layout.item_fold_list, binding.llContainer, false);
+            itemBinding.tvGroupTitle.setText(groupArray.get(i));
+            itemBinding.itemRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+            itemBinding.itemRecyclerView.setAdapter(new MyAdapter(this, childArray.get(i)));
+            itemBinding.tvGroupTitle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (itemBinding.itemRecyclerView.getVisibility() == View.VISIBLE) {
+                        itemBinding.itemRecyclerView.setVisibility(View.GONE);
+                    } else {
+                        itemBinding.itemRecyclerView.setVisibility(View.VISIBLE);
+                    }
+                }
+            });
+            binding.llContainer.addView(itemBinding.getRoot());
+        }
     }
 }

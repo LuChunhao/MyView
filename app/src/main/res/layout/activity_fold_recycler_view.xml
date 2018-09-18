@@ -6,9 +6,11 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!--<android.support.v7.widget.RecyclerView-->
-        <com.example.myview.view.MyRecyclerView
+        <!--<com.example.myview.view.MyRecyclerView-->
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/main_recycler_view"
+            android:descendantFocusability="blocksDescendants"
+            android:focusable="false"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -16,6 +18,19 @@
             android:id="@+id/list_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
 
     </LinearLayout>
 </layout>
