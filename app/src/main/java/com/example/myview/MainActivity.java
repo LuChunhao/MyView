@@ -10,9 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.myview.activity.AppWebView;
 import com.example.myview.activity.FoldRecyclerViewActivity;
 import com.example.myview.activity.GlideImageActivity;
 import com.example.myview.activity.NestedHoverTabActivity;
+import com.example.myview.activity.TenWebview;
 import com.example.myview.activity.WebActivity;
 import com.example.myview.databinding.ActivityMainBinding;
 
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding.btGlideImage.setOnClickListener(this);
         binding.btTabLayout.setOnClickListener(this);
         binding.btFoldRecyclerView.setOnClickListener(this);
+        binding.btAppWebview.setOnClickListener(this);
+        binding.btTencentWebview.setOnClickListener(this);
 
         ObjectAnimator animator = ObjectAnimator.ofFloat(binding.ivLauncher, "rotationY", 0, 360);
         //animator.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -74,6 +78,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_fold_recycler_view:
                 startActivity(new Intent(MainActivity.this, FoldRecyclerViewActivity.class));
+                break;
+            case R.id.bt_app_webview:
+                startActivity(new Intent(MainActivity.this, AppWebView.class));
+                break;
+            case R.id.bt_tencent_webview:
+                startActivity(new Intent(MainActivity.this, TenWebview.class));
                 break;
         }
     }

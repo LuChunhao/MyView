@@ -15,7 +15,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="visible">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -30,7 +30,14 @@
                     android:layout_height="wrap_content"
                     android:paddingLeft="30dp"
                     android:paddingRight="30dp" />
+
+                <Button
+                    android:id="@+id/bt_change"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50" />
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -130,12 +137,12 @@
                     android:layout_height="50dp"
                     android:visibility="visible"
                     app:interval_side="5dp"
-                    app:point_radius="4.5dp"
-                    app:point_count="5"/>
+                    app:point_count="5"
+                    app:point_radius="4.5dp" />
 
                 <com.example.myview.view.LoadingViewLayout
                     android:layout_width="match_parent"
-                    android:layout_height="50dp"/>
+                    android:layout_height="50dp" />
 
                 <ProgressBar
                     android:id="@+id/loading"
@@ -150,7 +157,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -162,14 +169,30 @@
                 <com.example.myview.view.ExpressTrackView
                     android:id="@+id/track_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/bt_change"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="50" />
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:padding="10dp"
+                    android:text="分区域点击的ImageView" />
+
+                <com.example.myview.view.SplitImageView
+                    android:id="@+id/hot_image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scaleType="fitXY"
+                    android:src="@mipmap/splash_img"/>
+
+            </LinearLayout>
 
         </LinearLayout>
     </ScrollView>

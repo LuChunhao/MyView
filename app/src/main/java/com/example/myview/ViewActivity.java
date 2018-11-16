@@ -5,10 +5,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 
 import com.example.myview.bean.DataBean;
 import com.example.myview.databinding.ActivityViewBinding;
+import com.example.myview.view.SplitImageView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +21,8 @@ import java.util.Random;
  */
 
 public class ViewActivity extends AppCompatActivity {
+
+    private static final String TAG = "ViewActivity";
 
     private ActivityViewBinding binding;
     private List<DataBean> mDataHistogramTotal;
@@ -52,5 +56,22 @@ public class ViewActivity extends AppCompatActivity {
 
         binding.mHistogramView.setDataTotal(mDataHistogramTotal);
         binding.mHistogramView.setPaints(Color.WHITE, Color.GRAY, Color.RED, Color.BLACK);
+        testImageClick();
+    }
+
+    private void testImageClick() {
+        List<String> urlList = new ArrayList<>();
+        urlList.add("1111");
+        urlList.add("2222");
+        urlList.add("3333");
+        urlList.add("4444");
+        binding.hotImageView.setUrlList(urlList);
+        //binding.hotImageView.setOrientation(SplitImageView.Orientation.Vertical);
+        binding.hotImageView.setOnWhereClickListener(new SplitImageView.OnWhereClickListener() {
+            @Override
+            public void onClick(View v, String url) {
+                Log.d(TAG, "onClick: url===" + url);
+            }
+        });
     }
 }
