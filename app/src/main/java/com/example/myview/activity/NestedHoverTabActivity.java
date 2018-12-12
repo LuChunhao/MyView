@@ -24,6 +24,7 @@ import java.util.List;
 public class NestedHoverTabActivity extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
 
     private ActivityTabRecyclerBinding binding;
+    //private ActivityTabRecyclerNewBinding binding;
     private CommonTabPagerAdapter adapter;
     private List<String> list = new ArrayList<>();
     private List<Fragment> fragmentList = new ArrayList<>();
@@ -36,7 +37,7 @@ public class NestedHoverTabActivity extends AppCompatActivity implements TabLayo
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);//取消标题
         binding = DataBindingUtil.setContentView(this, R.layout.activity_tab_recycler);
-
+        //binding = DataBindingUtil.setContentView(this, R.layout.activity_tab_recycler_new);
         //binding.collapsingToolbar.setTitle("返回");
         //binding.collapsingToolbar.setExpandedTitleColor(Color.parseColor("#00ffffff"));//设置还没收缩时状态下字体颜色
         //binding.collapsingToolbar.setCollapsedTitleTextColor(Color.WHITE);//设置收缩后Toolbar上字体的
@@ -54,9 +55,11 @@ public class NestedHoverTabActivity extends AppCompatActivity implements TabLayo
 
         adapter = new CommonTabPagerAdapter(getSupportFragmentManager(), fragmentList, list, this);
         binding.viewpager.setAdapter(adapter);
-        binding.tabLayout.setOnTabSelectedListener(this);
+        binding.tabLayout.addOnTabSelectedListener(this);
         binding.tabLayout.setTabMode(TabLayout.MODE_FIXED);
         binding.tabLayout.setupWithViewPager(binding.viewpager);
+
+
 
     }
 
@@ -73,5 +76,9 @@ public class NestedHoverTabActivity extends AppCompatActivity implements TabLayo
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
 
+    }
+
+    public void setExpanded(boolean b, boolean b1) {
+        //binding.appbar.setExpanded(b, b1);
     }
 }

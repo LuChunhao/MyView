@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.example.myview.view.ctrlheaderviewpager.CtrlHeaderViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:hvp_topOffset="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scaleType="centerInside"
+                app:layout_collapseMode="none"
+                app:layout_scrollFlags="scroll"
+                android:fitsSystemWindows="true"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:background="@mipmap/image"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+
+                <ImageView
+                    android:background="@mipmap/image"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="200dp" />
+
+                <ImageView
+                    android:background="@mipmap/image"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="200dp" />
+
+                <ImageView
+                    android:background="@mipmap/image"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="200dp" />
+
+                <ImageView
+                    android:background="@mipmap/image"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:layout_height="200dp" />
+
+            </LinearLayout>
+
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_list_item"
+                app:tabIndicatorColor="#666666"
+                app:tabSelectedTextColor="#4D4D4D"
+                app:tabTextColor="#A7A7A7" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        </com.example.myview.view.ctrlheaderviewpager.CtrlHeaderViewPager>
+
+    </LinearLayout>
+</layout>

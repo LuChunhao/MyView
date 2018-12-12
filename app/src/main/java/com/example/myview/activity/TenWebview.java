@@ -29,7 +29,7 @@ public class TenWebview extends AppCompatActivity {
     private long currentTime;
     private ActivityTencentWebviewBinding binding;
     private WebSettings webSettings;
-    private String webUrl = "https://testm.ericdress.com/app/sales/11111-96.html?ug=id0b4f0a4d-2f4e-47f6-962d-43e2e0b250d9&platform=3&cultureId=1&currency=USD&uid=aLv5j1O9FkS6e9BGjNZ1jw%3D%3D";
+    private String webUrl = "https://m.tbdress.com/sales/stylish-boots-h5-3783.html?ug=469f1558-8395-4bed-8d98-2de836dfa39f&flag=1";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

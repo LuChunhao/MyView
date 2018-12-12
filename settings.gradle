@@ -1,1 +1,1 @@
-include ':app', ':test', ':refresh-layout', ':rxcache'
+include ':app', ':test', ':refresh-layout', ':rxcache', ':banner'

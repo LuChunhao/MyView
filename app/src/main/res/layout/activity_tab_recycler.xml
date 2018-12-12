@@ -11,6 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:theme="@style/ToolbarTheme"
+            app:layout_behavior="com.example.myview.view.FlingBehavior"
             android:fitsSystemWindows="true">
             <!--app:layout_scrollFlags="scroll|enterAlways"-->
 
@@ -32,6 +33,30 @@
                     <ImageView
                         android:background="@mipmap/image"
                         android:layout_width="match_parent"
+                        android:layout_height="200dp" />
+
+                    <ImageView
+                        android:background="@mipmap/image"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="200dp" />
+
+                    <ImageView
+                        android:background="@mipmap/image"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="200dp" />
+
+                    <ImageView
+                        android:background="@mipmap/image"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="200dp" />
+
+                    <ImageView
+                        android:background="@mipmap/image"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="10dp"
                         android:layout_height="200dp" />
 
                 </LinearLayout>
