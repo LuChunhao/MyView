@@ -3,88 +3,93 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="com.example.myview.MainActivity">
+        android:layout_height="match_parent">
 
-        <com.youth.banner.Banner
-            android:id="@+id/banner"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="240dp"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            tools:context="com.example.myview.MainActivity">
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="240dp" />
 
 
-        <TextView
-            android:id="@+id/bt_my_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:paddingBottom="2dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:paddingTop="2dp"
-            android:text="自定义view"
-            app:bl_corners_radius="999dp"
-            app:bl_pressed_drawable="@color/colorTextAssistant"
-            app:bl_solid_color="@color/colorAccent"
-            app:bl_stroke_color="#000000"
-            app:bl_unPressed_drawable="@color/colorAccent" />
+            <TextView
+                android:id="@+id/bt_my_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingBottom="2dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="2dp"
+                android:text="自定义view"
+                app:bl_corners_radius="999dp"
+                app:bl_pressed_drawable="@color/colorTextAssistant"
+                app:bl_solid_color="@color/colorAccent"
+                app:bl_stroke_color="#000000"
+                app:bl_unPressed_drawable="@color/colorAccent" />
 
-        <TextView
-            android:id="@+id/bt_recycler_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="recycler_view"
-            app:bl_corners_radius="999dp"
-            app:bl_gradient_angle="0"
-            app:bl_gradient_centerColor="@color/colorPrimary"
-            app:bl_gradient_endColor="@color/colorPrimaryDark"
-            app:bl_gradient_startColor="@color/colorAccent"
-            app:bl_gradient_type="linear" />
+            <TextView
+                android:id="@+id/bt_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="recycler_view"
+                app:bl_corners_radius="999dp"
+                app:bl_gradient_angle="0"
+                app:bl_gradient_centerColor="@color/colorPrimary"
+                app:bl_gradient_endColor="@color/colorPrimaryDark"
+                app:bl_gradient_startColor="@color/colorAccent"
+                app:bl_gradient_type="linear" />
 
-        <Button
-            android:id="@+id/bt_web_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="webview" />
+            <Button
+                android:id="@+id/bt_web_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="webview" />
 
-        <Button
-            android:id="@+id/bt_glide_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="GlideImage" />
+            <Button
+                android:id="@+id/bt_glide_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GlideImage" />
 
-        <Button
-            android:id="@+id/bt_tab_layout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="tablayout" />
+            <Button
+                android:id="@+id/bt_tab_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="tablayout" />
 
-        <Button
-            android:id="@+id/bt_fold_recycler_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="折叠recyclerview" />
+            <Button
+                android:id="@+id/bt_fold_recycler_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="折叠recyclerview" />
 
-        <Button
-            android:id="@+id/bt_app_webview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="原生webview" />
+            <Button
+                android:id="@+id/bt_app_webview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="原生webview" />
 
-        <Button
-            android:id="@+id/bt_tencent_webview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="腾讯webview" />
+            <Button
+                android:id="@+id/bt_tencent_webview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="腾讯webview" />
 
-        <ImageView
-            android:id="@+id/iv_launcher"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
+            <ImageView
+                android:id="@+id/iv_launcher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher" />
 
-    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
 </layout>

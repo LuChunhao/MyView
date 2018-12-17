@@ -72,7 +72,7 @@ public class ViewActivity extends AppCompatActivity {
         urlList.add("2222");
         urlList.add("3333");
         urlList.add("4444");
-        binding.hotImageView.setUrlList(urlList);
+        //binding.hotImageView.setUrlList(urlList);
         //binding.hotImageView.setOrientation(SplitImageView.Orientation.Vertical);
         binding.hotImageView.setOnWhereClickListener(new SplitImageView.OnWhereClickListener() {
             @Override
