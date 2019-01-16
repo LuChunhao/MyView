@@ -1,1 +1,1 @@
-include ':app', ':test', ':refresh-layout', ':rxcache', ':banner'
+include ':app', ':test', ':refresh-layout', ':rxcache', ':banner', ':myjar'

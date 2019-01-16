@@ -38,11 +38,11 @@ dependencies {
     compile 'com.android.support:design:25.0.1'
     compile 'com.github.bumptech.glide:glide:3.8.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-
     compile 'com.noober.background:core:1.3.3'
     testCompile 'junit:junit:4.12'
     compile project(':refresh-layout')
     compile project(':rxcache')
     compile project(':banner')
     compile files('libs/tbs_sdk_thirdapp_v3.6.0.1325_43613_sharewithdownload_withoutGame_obfs_20180807_151115.jar')
+    compile files('libs/classes.jar')
 }
