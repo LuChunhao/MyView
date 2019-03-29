@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.myview.bean.DataBean;
 import com.example.myview.databinding.ActivityViewBinding;
 import com.example.myview.view.SplitImageView;
@@ -22,7 +23,7 @@ import java.util.Random;
  * Created by luchunhao on 2018/4/16.
  */
 
-public class ViewActivity extends AppCompatActivity {
+public class ViewActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "ViewActivity";
 
@@ -35,19 +36,18 @@ public class ViewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_view);
 
-        binding.btChange.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Random random = new Random();
-                int num = random.nextInt(100);
-                binding.btChange.setText(String.valueOf(num));
-                binding.intervalView.setCurrentProgress(num);
-
-                binding.slideLayout.invalidate();
-            }
-        });
-
+        initListener();
         initData();
+    }
+
+    private void initListener() {
+        binding.tvSlideLayout.setOnClickListener(this);
+        binding.tvZhuXing.setOnClickListener(this);
+        binding.tvLoading.setOnClickListener(this);
+        binding.btChange.setOnClickListener(this);
+        binding.tvSplitImage.setOnClickListener(this);
+        binding.tvSelectView.setOnClickListener(this);
+
     }
 
     private void initData() {
@@ -67,6 +67,12 @@ public class ViewActivity extends AppCompatActivity {
      * 热区图片点击
      */
     private void testImageClick() {
+
+        Glide.with(this)
+                .load("http://shp.qpic.cn/ishow/2735012115/1548054918_1186005513_15008_sProdImgNo_6.jpg/0")
+                .placeholder(R.mipmap.lufei)
+                .into(binding.hotImageView);
+
         List<String> urlList = new ArrayList<>();
         urlList.add("1111");
         urlList.add("2222");
@@ -105,5 +111,34 @@ public class ViewActivity extends AppCompatActivity {
                 Toast.makeText(ViewActivity.this, labels.get(index), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.tv_slide_layout:
+                binding.slideLayout.setVisibility(binding.slideLayout.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+                break;
+            case R.id.tv_zhu_xing:
+                binding.mHistogramView.setVisibility(binding.mHistogramView.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+                break;
+            case R.id.tv_loading:
+                binding.llLoading.setVisibility(binding.llLoading.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+                break;
+            case R.id.bt_change:
+                Random random = new Random();
+                int num = random.nextInt(100);
+                binding.btChange.setText(String.valueOf(num));
+                binding.intervalView.setCurrentProgress(num);
+
+                binding.slideLayout.invalidate();
+                break;
+            case R.id.tv_split_image:
+                binding.hotImageView.setVisibility(binding.hotImageView.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+                break;
+            case R.id.tv_select_view:
+                binding.selectView.setVisibility(binding.selectView.getVisibility() == View.GONE ? View.VISIBLE : View.GONE);
+                break;
+        }
     }
 }

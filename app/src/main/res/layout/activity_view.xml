@@ -11,6 +11,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <!--区间view-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -18,6 +19,7 @@
                 android:visibility="visible">
 
                 <TextView
+                    android:id="@+id/tv_qujian"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/darker_gray"
@@ -38,7 +40,7 @@
                     android:text="50" />
             </LinearLayout>
 
-
+            <!--滑动viewGroup-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,6 +48,7 @@
                 android:visibility="gone">
 
                 <TextView
+                    android:id="@+id/tv_slide_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/darker_gray"
@@ -81,6 +84,7 @@
                 </com.example.myview.view.SlideTwoSideLayout>
             </LinearLayout>
 
+            <!--柱形图-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -88,6 +92,7 @@
                 android:visibility="gone">
 
                 <TextView
+                    android:id="@+id/tv_zhu_xing"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/darker_gray"
@@ -100,6 +105,7 @@
                     android:layout_height="200dp" />
             </LinearLayout>
 
+            <!--K线图-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -107,6 +113,7 @@
                 android:visibility="gone">
 
                 <TextView
+                    android:id="@+id/tv_k_line"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/darker_gray"
@@ -116,43 +123,10 @@
                 <com.example.myview.view.LineChartView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="visible">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/darker_gray"
-                    android:padding="10dp"
-                    android:text="loading view" />
-
-                <com.example.myview.view.LoadingView
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:visibility="visible"
-                    app:interval_side="5dp"
-                    app:point_count="5"
-                    app:point_radius="4.5dp" />
-
-                <com.example.myview.view.LoadingViewLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp" />
-
-                <ProgressBar
-                    android:id="@+id/loading"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:indeterminateBehavior="repeat"
-                    android:indeterminateDrawable="@drawable/progress_bar"
                     android:visibility="visible" />
             </LinearLayout>
 
+            <!--loading view-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -160,6 +134,52 @@
                 android:visibility="gone">
 
                 <TextView
+                    android:id="@+id/tv_loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/darker_gray"
+                    android:padding="10dp"
+                    android:text="loading view" />
+
+                <LinearLayout
+                    android:id="@+id/ll_loading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.example.myview.view.LoadingView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:visibility="visible"
+                        app:interval_side="5dp"
+                        app:point_count="5"
+                        app:point_radius="4.5dp" />
+
+                    <com.example.myview.view.LoadingViewLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp" />
+
+                    <ProgressBar
+                        android:id="@+id/loading"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:indeterminateBehavior="repeat"
+                        android:indeterminateDrawable="@drawable/progress_bar"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--l物流view-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_shipped"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/darker_gray"
@@ -172,6 +192,7 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
+            <!--分区域点击的ImageView-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -179,6 +200,7 @@
                 android:visibility="visible">
 
                 <TextView
+                    android:id="@+id/tv_split_image"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/darker_gray"
@@ -188,11 +210,12 @@
                 <com.example.myview.view.SplitImageView
                     android:id="@+id/hot_image_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:scaleType="fitXY"/>
+                    android:layout_height="202dp"
+                    android:scaleType="fitCenter"/>
 
             </LinearLayout>
 
+            <!--条件选择view-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -200,6 +223,7 @@
                 android:visibility="visible">
 
                 <TextView
+                    android:id="@+id/tv_select_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@android:color/darker_gray"
