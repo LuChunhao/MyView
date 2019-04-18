@@ -37,6 +37,7 @@
         <activity android:name=".activity.FoldRecyclerViewActivity" />
         <activity android:name=".activity.AppWebView" />
         <activity android:name=".activity.TenWebview" />
+        <activity android:name=".activity.ImageLoadActivity" />
     </application>
 
 </manifest>

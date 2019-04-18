@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Matrix;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -13,10 +14,12 @@ import android.widget.Toast;
 import com.example.myview.activity.AppWebView;
 import com.example.myview.activity.FoldRecyclerViewActivity;
 import com.example.myview.activity.GlideImageActivity;
+import com.example.myview.activity.ImageLoadActivity;
 import com.example.myview.activity.NestedHoverTabActivity;
 import com.example.myview.activity.TenWebview;
 import com.example.myview.databinding.ActivityMainBinding;
 import com.noober.background.BackgroundLibrary;
+import com.youth.banner.listener.OnBannerListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void initBanner() {
-        List<String> images = new ArrayList<>();
+        final List<String> images = new ArrayList<>();
 //        String image1 = "http://ww4.sinaimg.cn/large/006uZZy8jw1faic1xjab4j30ci08cjrv.jpg";
 //        String image2 = "http://ww4.sinaimg.cn/large/006uZZy8jw1faic21363tj30ci08ct96.jpg";
 //        String image3 = "http://ww4.sinaimg.cn/large/006uZZy8jw1faic259ohaj30ci08c74r.jpg";
@@ -100,6 +103,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding.banner.setImageLoader(new GlideImageLoader());
         binding.banner.setImages(images);
         binding.banner.start();
+
+        binding.banner.setOnBannerListener(new OnBannerListener() {
+            @Override
+            public void OnBannerClick(int position) {
+                Intent intent = new Intent(MainActivity.this, ImageLoadActivity.class);
+                intent.putExtra("imageUrl", images.get(position));
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
