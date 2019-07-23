@@ -1,14 +1,24 @@
 package com.example.myview;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.content.Context;
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.graphics.Matrix;
+import android.os.Build;
 import android.os.Bundle;
+import android.print.PrintAttributes;
+import android.print.PrintDocumentAdapter;
+import android.print.PrintJob;
+import android.print.PrintManager;
+import android.support.annotation.RequiresApi;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.Toast;
 
 import com.example.myview.activity.AppWebView;
@@ -18,6 +28,7 @@ import com.example.myview.activity.ImageLoadActivity;
 import com.example.myview.activity.NestedHoverTabActivity;
 import com.example.myview.activity.TenWebview;
 import com.example.myview.databinding.ActivityMainBinding;
+import com.example.myview.kotlin.FirstActivity;
 import com.noober.background.BackgroundLibrary;
 import com.youth.banner.listener.OnBannerListener;
 
@@ -25,6 +36,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    private static final String TAG = "MainActivity";
 
     private ActivityMainBinding binding;
 
@@ -33,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         BackgroundLibrary.inject(this);
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
-
+        binding.floatButton.setOnClickListener(this);
         binding.btMyView.setOnClickListener(this);
         binding.btRecyclerView.setOnClickListener(this);
         binding.btWebView.setOnClickListener(this);
@@ -42,6 +54,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding.btFoldRecyclerView.setOnClickListener(this);
         binding.btAppWebview.setOnClickListener(this);
         binding.btTencentWebview.setOnClickListener(this);
+        binding.btKotlin.setOnClickListener(this);
 
         ObjectAnimator animator = ObjectAnimator.ofFloat(binding.ivLauncher, "rotationY", 0, 360);
         //animator.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -56,10 +69,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         float[] values = new float[9];
         matrix.getValues(values);
         for (int i = 0; i < values.length; i++) {
-            string += "matrix.at" + i + "=" + values[i];
+            string += "matrix.at" + i + "=" + values[i] + "\t";
         }
         Toast.makeText(this, string, Toast.LENGTH_SHORT).show();
-        Log.d("TEST", string);
+        Log.d(TAG, string);
 
         initBanner();
         
@@ -140,6 +153,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.bt_tencent_webview:
                 startActivity(new Intent(MainActivity.this, TenWebview.class));
                 break;
+            case R.id.bt_kotlin:
+                startActivity(new Intent(MainActivity.this, FirstActivity.class));
+                break;
+            case R.id.float_button:
+                Toast.makeText(this, "属性动画", Toast.LENGTH_SHORT).show();
+                ObjectAnimator animator = ObjectAnimator.ofFloat(binding.floatButton, "translationX", 0, 360);
+                //animator.setInterpolator(new AccelerateDecelerateInterpolator());
+                animator.setDuration(500);
+//                animator.setRepeatCount(-1);
+//                animator.setRepeatMode(ObjectAnimator.REVERSE);
+                animator.start();
+                animator.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        super.onAnimationEnd(animation);
+                        Log.d(TAG, "onAnimationEnd: " + binding.floatButton.getX());
+                    }
+                });
+                break;
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void createWebPrintJob(WebView webView) {
+
+        // Get a PrintManager instance
+        PrintManager printManager = (PrintManager) getSystemService(Context.PRINT_SERVICE);
+
+        // Get a print adapter instance
+        PrintDocumentAdapter printAdapter = webView.createPrintDocumentAdapter();
+
+        // Create a print job with name and adapter instance
+        String jobName = getString(R.string.app_name) + " Document";
+        PrintJob printJob = printManager.print(jobName, printAdapter,
+                new PrintAttributes.Builder().build());
+
+
+        // Save the job object for later status checking
+        //mPrintJobs.add(printJob);
     }
 }

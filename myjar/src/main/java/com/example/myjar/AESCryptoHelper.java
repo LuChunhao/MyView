@@ -1,4 +1,4 @@
-package com.tlz.tbdress.mvvm.common.utils;
+package com.example.myjar;
 
 import android.util.Base64;
 

@@ -7,6 +7,8 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
+import android.view.VelocityTracker;
 import android.view.View;
 
 import com.example.myview.DensityUtils;
@@ -17,6 +19,7 @@ import com.example.myview.DensityUtils;
  */
 
 public class IntervalView extends View {
+    private static final String TAG = "IntervalView";
 
     private int intervalCount = 3;
     private Paint mPaint;
@@ -49,8 +52,11 @@ public class IntervalView extends View {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        //widthMeasureSpec = MeasureSpec.makeMeasureSpec(getMeasuredWidth(),MeasureSpec.AT_MOST);
-        heightMeasureSpec = MeasureSpec.makeMeasureSpec(getPaddingLeft() + getPaddingRight(), MeasureSpec.AT_MOST);
+        Log.d(TAG, "onMeasure: widthMeasureSpec===" + widthMeasureSpec + "\theightMeasureSpec===" + heightMeasureSpec);
+//        widthMeasureSpec = MeasureSpec.makeMeasureSpec(getMeasuredWidth(),MeasureSpec.AT_MOST);
+        heightMeasureSpec = MeasureSpec.makeMeasureSpec(getPaddingLeft() + getPaddingRight(), MeasureSpec.EXACTLY);
+        //MeasureSpec.getMode(heightMeasureSpec);
+        Log.d(TAG, "onMeasure: heightMeasureSpec222===" + heightMeasureSpec);
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 

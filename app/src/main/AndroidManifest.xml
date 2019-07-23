@@ -38,6 +38,8 @@
         <activity android:name=".activity.AppWebView" />
         <activity android:name=".activity.TenWebview" />
         <activity android:name=".activity.ImageLoadActivity" />
+        <activity android:name=".activity.CategoryActivity" />
+        <activity android:name=".kotlin.FirstActivity" />
     </application>
 
 </manifest>
