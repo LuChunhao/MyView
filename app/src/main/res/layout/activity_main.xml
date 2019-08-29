@@ -97,6 +97,12 @@
                 android:layout_height="wrap_content"
                 android:text="Kotlin"/>
 
+            <Button
+                android:id="@+id/bt_tree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="treeview"/>
+
             <ImageView
                 android:id="@+id/iv_launcher"
                 android:layout_width="wrap_content"

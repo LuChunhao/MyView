@@ -29,6 +29,7 @@ import com.example.myview.activity.NestedHoverTabActivity;
 import com.example.myview.activity.TenWebview;
 import com.example.myview.databinding.ActivityMainBinding;
 import com.example.myview.kotlin.FirstActivity;
+import com.example.myview.kotlin.TreeActivity;
 import com.noober.background.BackgroundLibrary;
 import com.youth.banner.listener.OnBannerListener;
 
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         binding.btAppWebview.setOnClickListener(this);
         binding.btTencentWebview.setOnClickListener(this);
         binding.btKotlin.setOnClickListener(this);
+        binding.btTree.setOnClickListener(this);
 
         ObjectAnimator animator = ObjectAnimator.ofFloat(binding.ivLauncher, "rotationY", 0, 360);
         //animator.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for (int i = 0; i < values.length; i++) {
             string += "matrix.at" + i + "=" + values[i] + "\t";
         }
-        Toast.makeText(this, string, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, string, Toast.LENGTH_SHORT).show();
         Log.d(TAG, string);
 
         initBanner();
@@ -155,6 +157,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.bt_kotlin:
                 startActivity(new Intent(MainActivity.this, FirstActivity.class));
+                break;
+            case R.id.bt_tree:
+                startActivity(new Intent(MainActivity.this, TreeActivity.class));
                 break;
             case R.id.float_button:
                 Toast.makeText(this, "属性动画", Toast.LENGTH_SHORT).show();

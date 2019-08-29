@@ -2,15 +2,18 @@ package com.example.myview;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import com.example.myview.adapter.MyAdapter;
 import com.example.myview.databinding.ActivityRecyclerViewBinding;
+import com.example.myview.manager.FullyLinearLayoutManager;
 import com.lei.lib.java.rxcache.RxCache;
 import com.lei.lib.java.rxcache.converter.GsonConverter;
 import com.lei.lib.java.rxcache.mode.CacheMode;
@@ -29,6 +32,7 @@ public class RecyclerviewActivity extends AppCompatActivity {
     private ActivityRecyclerViewBinding binding;
     private MyAdapter adapter;
     private List<String> list = new ArrayList<>();
+    LinearLayoutManager layoutManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,9 +46,21 @@ public class RecyclerviewActivity extends AppCompatActivity {
 
         adapter = new MyAdapter(this, list);
 
-        //binding.recyclerView.setHasFixedSize(true);
-        //binding.recyclerView.setNestedScrollingEnabled(false);
-        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        binding.recyclerView.setHasFixedSize(true);
+//        binding.recyclerView.setNestedScrollingEnabled(false);
+//        layoutManager = new LinearLayoutManager(this){
+//            @Override
+//            public boolean canScrollVertically() {
+//                return true;
+//            }
+//
+//            @Override
+//            public void onMeasure(@NonNull RecyclerView.Recycler recycler, @NonNull RecyclerView.State state, int widthSpec, int heightSpec) {
+//                super.onMeasure(recycler, state, widthSpec, heightSpec);
+//            }
+//        };
+        layoutManager = new FullyLinearLayoutManager(this);
+        binding.recyclerView.setLayoutManager(layoutManager);
         binding.recyclerView.addItemDecoration(new DividerItemDecoration(this,DividerItemDecoration.VERTICAL));
         binding.recyclerView.setItemAnimator(new DefaultItemAnimator());
         binding.recyclerView.setAdapter(adapter);
